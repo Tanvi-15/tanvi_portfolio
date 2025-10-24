@@ -53,14 +53,14 @@ const Hero = () => {
                 <div className="flex flex-col gap-4">
                   {/* PDF Viewer */}
                   <iframe 
-                    src="public/resources/Tanvi_software.pdf" 
+                    src="/resources/Tanvi_software.pdf" 
                     className="w-full h-[70vh] border rounded"
                     title="Resume PDF"
                   />
                   
                   {/* Download Button */}
                   <Button 
-                    onClick={() => window.open('public/resources/Tanvi_software.pdf', '_blank')}
+                    onClick={() => window.open('/resources/Tanvi_software.pdf', '_blank')}
                     className="gap-2"
                   >
                     <Download className="h-4 w-4" />
