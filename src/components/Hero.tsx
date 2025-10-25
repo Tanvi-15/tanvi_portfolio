@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Hero = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
   return (
     <section id="home" className="py-12 px-6">
       <div className="max-w-6xl mx-auto">
@@ -23,7 +24,7 @@ const Hero = () => {
             </p>
             
             <h1 className="text-6xl md:text-8xl font-bold mb-2 text-foreground">
-              <span className="text-primary">Tanvi</span>
+              <span className="text-primary">Tanvi D.</span>
             </h1>
             
             <h2 className="text-5xl md:text-6xl font-bold mb-2 text-foreground">

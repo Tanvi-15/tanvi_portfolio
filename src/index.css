@@ -55,3 +55,55 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Particles container styles - keep behind all content */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ensure particles only appear in main content area, not sidebar */
+@media (min-width: 1024px) {
+  #particles-js {
+    left: 16rem; /* Adjust based on sidebar width */
+    width: calc(100% - 16rem);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* Hide particles completely on mobile */
+@media (max-width: 1023px) {
+  #particles-js {
+    display: none;
+  }
+}
+
+/* Ensure sidebar has higher z-index to block particles */
+[data-sidebar] {
+  position: relative;
+  z-index: 10;
+}
+
+/* Additional sidebar protection */
+aside {
+  position: relative;
+  z-index: 20;
+  background: hsl(var(--background));
+}
+
+/* Ensure all content appears above particles */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure sidebar appears above particles */
+aside {
+  position: relative;
+  z-index: 2;
+}

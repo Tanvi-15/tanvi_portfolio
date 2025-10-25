@@ -32,8 +32,12 @@ export function AppSidebar() {
       <SidebarContent>
         <div className="p-6 border-b border-border flex items-center justify-between">
           <div>
-            <div className="w-16 h-16 rounded-full bg-primary/20 border-2 border-primary mb-3 flex items-center justify-center text-2xl font-bold text-primary">
-              TN
+            <div className="w-16 h-16">
+              <img 
+                src="/resources/TD.png" 
+                alt="TD" 
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* <h2 className="text-sm font-semibold text-foreground">tanvi.dev</h2> */}
           </div>
