@@ -8,12 +8,15 @@ const education = [
     period: "Aug 2024 — May 2026",
     location: "Boston, MA",
     detail: "Khoury College of Computer Science",
+    logo: "/N-Motto Wordmark_PMSc_186+KO.png",
   },
   {
-    school: "KJ Somaiya College of Engineering",
+    school: "Somaiya Vidyavihar University",
     degree: "Bachelor of Engineering, Computer Engineering",
-    period: "2020 — 2024",
+    period: "Aug 2020 — May 2024",
     location: "Mumbai, India",
+    detail: "KJ Somaiya College of Engineering",
+    logo: "/somaiya white logo.png",
   },
 ];
 
@@ -49,14 +52,23 @@ const EducationSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.2 }}
-                className="glass-card rounded-lg p-6 transition-all duration-500"
+                className="glass-card rounded-lg p-6 transition-all duration-500 flex gap-6 items-start"
               >
-                <h3 className="text-xl font-bold text-foreground mb-1">{edu.school}</h3>
-                <p className="text-primary font-mono text-sm mb-2">{edu.degree}</p>
-                {edu.detail && <p className="text-secondary-foreground text-sm mb-2">{edu.detail}</p>}
-                <p className="text-muted-foreground font-mono text-xs">
-                  {edu.period} · {edu.location}
-                </p>
+                <div className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-md overflow-hidden bg-zinc-800 flex items-center justify-center">
+                  <img
+                    src={edu.logo}
+                    alt={`${edu.school} logo`}
+                    className="w-full h-full object-contain p-2"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-xl font-bold text-foreground mb-1">{edu.school}</h3>
+                  <p className="text-primary font-mono text-sm mb-2">{edu.degree}</p>
+                  {edu.detail && <p className="text-secondary-foreground text-sm mb-2">{edu.detail}</p>}
+                  <p className="text-muted-foreground font-mono text-xs">
+                    {edu.period} · {edu.location}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
