@@ -5,11 +5,12 @@ import TiltCard from "./TiltCard";
 const experiences = [
   {
     company: "DMSB AI Strategic Hub (DASH)",
-    role: "AI Software Engineer",
+    role: "AI/ML Software Engineer",
     period: "Dec 2024 — Present",
     location: "Boston, MA",
+    logo: "/DASHLogoBloo.png",
     highlights: [
-      "Built full-stack AI grading platform reducing faculty grading time by 95% with 67% adoption across 200+ faculty",
+      "Built full-stack AI grading platform reducing faculty grading time by 90%",
       "Engineered RAG pipeline with FAISS + HuggingFace embeddings, 90% accuracy on 30+ PDFs",
       "Architected multimodal speech AI serving 80+ presentations with real-time feedback",
       "Optimized GPU inference — 5x throughput on NVIDIA Blackwell",
@@ -22,6 +23,7 @@ const experiences = [
     role: "Data Analyst Intern",
     period: "Jan 2024 — Jul 2024",
     location: "Mumbai, India",
+    logo: "/CAPG.png",
     highlights: [
       "Developed GenAI Scheduler Analyzer and Optimizer for resource management",
       "Built multi-agent AI Assistant for aircraft engineers",
@@ -35,6 +37,7 @@ const experiences = [
     role: "Machine Learning Intern",
     period: "Jun 2023 — Aug 2023",
     location: "Mumbai, India",
+    logo: "/CAPG.png",
     highlights: [
       "Applied real-time data analysis and ML to optimize manufacturing productivity",
       "Leveraged PLCs and generative AI for reprogramming tasks",
@@ -78,9 +81,18 @@ const ExperienceSection = () => {
 
                   <TiltCard className="glass-card rounded-lg p-6 transition-all duration-500">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground">{exp.company}</h3>
-                        <p className="text-primary font-mono text-sm">{exp.role}</p>
+                      <div className="flex items-center gap-4">
+                        <div className="flex-shrink-0 w-14 h-14 rounded-md overflow-hidden bg-zinc-800 flex items-center justify-center">
+                          <img
+                            src={exp.logo}
+                            alt={`${exp.company} logo`}
+                            className="w-full h-full object-contain p-1"
+                          />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-foreground">{exp.company}</h3>
+                          <p className="text-primary font-mono text-sm">{exp.role}</p>
+                        </div>
                       </div>
                       <div className="text-muted-foreground font-mono text-xs mt-1 md:mt-0">
                         <p>{exp.period}</p>

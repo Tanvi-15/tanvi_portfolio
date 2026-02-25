@@ -8,7 +8,7 @@ const education = [
     period: "Aug 2024 — May 2026",
     location: "Boston, MA",
     detail: "Khoury College of Computer Science",
-    logo: "/N-Motto Wordmark_PMSc_186+KO.png",
+    logo: "/NEU.png",
   },
   {
     school: "Somaiya Vidyavihar University",
