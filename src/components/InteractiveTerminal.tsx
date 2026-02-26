@@ -123,8 +123,8 @@ const COMMANDS: Record<string, () => OutputLine[]> = {
 
 const WELCOME_LINES: OutputLine[] = [
   { text: "╔══════════════════════════════════════════════════════╗", type: "heading" },
-  { text: "║  Welcome to Tanvi's Terminal Portfolio  v2.0        ║", type: "heading" },
-  { text: "║  Type 'help' to see available commands              ║", type: "heading" },
+  { text: "║  Welcome to Tanvi's Terminal Portfolio  v2.0         ║", type: "heading" },
+  { text: "║  Type 'help' to see available commands               ║", type: "heading" },
   { text: "╚══════════════════════════════════════════════════════╝", type: "heading" },
   { text: "", type: "output" },
 ];

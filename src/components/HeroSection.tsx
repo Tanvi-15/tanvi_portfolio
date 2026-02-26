@@ -1,13 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import ParticleBackground from "./ParticleBackground";
 
 const HeroSection = () => {
+  const { scrollY } = useScroll();
+  const blurPx = useTransform(
+    scrollY,
+    [0, 400, 700],
+    [0, 8, 24]
+  );
+  const filter = useTransform(blurPx, (v) => `blur(${v}px)`);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative sticky top-0 h-screen flex items-center justify-center overflow-hidden">
       <ParticleBackground />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10" />
 
-      <div className="relative z-20 section-container text-center">
+      <motion.div
+        className="relative z-20 section-container text-center w-full"
+        style={{ filter }}
+      >
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,7 +86,7 @@ const HeroSection = () => {
             Download Resume
           </a>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
