@@ -28,7 +28,7 @@ const Navbar = () => {
         scrolled ? "glass-card py-3" : "py-5"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-8 sm:px-10 md:px-12 lg:px-16 flex items-center justify-between">
         <a href="#" className="font-mono text-lg font-bold text-primary glow-text">
           {"<TD />"}
         </a>

@@ -35,7 +35,7 @@ const HeroSection = () => {
           className="text-5xl md:text-7xl font-bold mb-6"
         >
           <span className="text-foreground">I'm </span>
-          <span className="gradient-text">Tanvi Deshpande</span>
+          <span className="gradient-text">Tanvi A. Deshpande</span>
           <span className="inline-block animate-[wave_1.5s_ease-in-out_infinite] origin-[70%_70%] ml-2">👋</span>
         </motion.h1>
 
