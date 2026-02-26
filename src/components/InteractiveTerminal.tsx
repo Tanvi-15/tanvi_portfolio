@@ -242,7 +242,6 @@ const InteractiveTerminal = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={onKeyDown}
               className="w-full bg-transparent outline-none text-foreground font-mono text-sm caret-primary"
-              autoFocus
               spellCheck={false}
               autoComplete="off"
             />
