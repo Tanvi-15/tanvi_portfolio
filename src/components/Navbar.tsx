@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 const links = [
   { label: "About", href: "#about" },
@@ -12,6 +14,7 @@ const links = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -38,6 +41,36 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border font-mono text-xs font-semibold transition-all duration-300 hover:scale-105"
+            style={{
+              borderColor: "hsl(var(--primary) / 0.3)",
+              color: "hsl(var(--primary))",
+              background: "transparent",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(var(--primary) / 0.7)";
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "var(--glow-primary)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(var(--primary) / 0.3)";
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
+            }}
+          >
+            {theme === "dark" ? (
+              <>
+                <Sun size={14} />
+                <span>Light</span>
+              </>
+            ) : (
+              <>
+                <Moon size={14} />
+                <span>Dark</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
     </motion.nav>

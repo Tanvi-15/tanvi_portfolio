@@ -214,11 +214,11 @@ const InteractiveTerminal = () => {
       onClick={() => inputRef.current?.focus()}
     >
       {/* Terminal header */}
-      <div className="flex items-center gap-2 px-4 py-2.5 bg-secondary/50 border-b border-border">
+      <div className="terminal-header">
         <div className="w-3 h-3 rounded-full bg-destructive/70" />
         <div className="w-3 h-3 rounded-full bg-[hsl(45_100%_50%)] opacity-70" />
         <div className="w-3 h-3 rounded-full bg-[hsl(120_60%_50%)] opacity-70" />
-        <span className="ml-3 font-mono text-xs text-muted-foreground">tanvi@portfolio — zsh — interactive</span>
+        <span className="ml-3 font-mono text-xs text-muted-foreground terminal-header-text">tanvi@portfolio — zsh — interactive</span>
       </div>
 
       {/* Terminal body */}

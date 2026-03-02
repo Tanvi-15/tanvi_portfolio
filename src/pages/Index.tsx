@@ -22,7 +22,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <div className="relative z-10 bg-background pt-10 pb-16">
+      <div className="relative z-10 sections-gradient pt-10 pb-16">
         <AboutSection />
         <ExperienceSection />
         <SkillsSection />

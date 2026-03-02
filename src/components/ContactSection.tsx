@@ -36,6 +36,14 @@ const ContactSection = () => {
             >
               LinkedIn ↗
             </a>
+            <a
+              href="https://github.com/Tanvi-15"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-md border border-primary/30 text-primary font-mono text-sm font-semibold transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_20px_hsl(180_100%_50%/0.2)]"
+            >
+              GitHub ↗
+            </a>
           </div>
         </motion.div>
 

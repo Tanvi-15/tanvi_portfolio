@@ -41,6 +41,18 @@
     --gradient-hero: linear-gradient(135deg, hsl(180 100% 50% / 0.15), hsl(280 100% 65% / 0.1));
     --gradient-card: linear-gradient(145deg, hsl(220 20% 8%), hsl(220 20% 5%));
 
+    --glass-card-bg: hsl(220 20% 7% / 0.8);
+    --glass-card-border: hsl(180 100% 50% / 0.1);
+    --glass-card-border-hover: hsl(180 100% 50% / 0.3);
+    --skill-tag-bg: hsl(220 20% 10%);
+    --skill-tag-border: hsl(180 100% 50% / 0.15);
+    --skill-tag-color: hsl(180 80% 70%);
+    --skill-tag-border-hover: hsl(180 100% 50% / 0.5);
+    --nav-link-color: hsl(220 10% 55%);
+
+    --glow-text-primary: 0 0 10px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.2);
+    --glow-text-accent: 0 0 10px hsl(280 100% 65% / 0.5), 0 0 40px hsl(280 100% 65% / 0.2);
+
     --sidebar-background: 220 20% 6%;
     --sidebar-foreground: 180 100% 95%;
     --sidebar-primary: 180 100% 50%;
@@ -49,6 +61,62 @@
     --sidebar-accent-foreground: 180 60% 80%;
     --sidebar-border: 180 30% 15%;
     --sidebar-ring: 180 100% 50%;
+  }
+
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 180 100% 26%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 180 50% 93%;
+    --secondary-foreground: 180 100% 18%;
+
+    --muted: 210 30% 93%;
+    --muted-foreground: 215 16% 40%;
+
+    --accent: 280 85% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 35% 82%;
+    --input: 180 25% 93%;
+    --ring: 180 100% 26%;
+
+    --glow-primary: 0 4px 24px hsl(180 100% 26% / 0.22), 0 1px 8px hsl(180 100% 26% / 0.14);
+    --glow-accent: 0 4px 24px hsl(280 85% 50% / 0.22), 0 1px 8px hsl(280 85% 50% / 0.14);
+    --gradient-hero: linear-gradient(135deg, hsl(180 100% 26% / 0.07), hsl(280 85% 50% / 0.06));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(180 40% 97%));
+
+    --glass-card-bg: hsl(0 0% 100% / 0.82);
+    --glass-card-border: hsl(180 100% 26% / 0.22);
+    --glass-card-border-hover: hsl(180 100% 26% / 0.5);
+    --skill-tag-bg: hsl(180 60% 93%);
+    --skill-tag-border: hsl(180 100% 26% / 0.28);
+    --skill-tag-color: hsl(180 100% 20%);
+    --skill-tag-border-hover: hsl(180 100% 26% / 0.65);
+    --nav-link-color: hsl(215 16% 40%);
+
+    --glow-text-primary: 0 0 8px hsl(180 100% 26% / 0.35), 0 0 24px hsl(180 100% 26% / 0.12);
+    --glow-text-accent: 0 0 8px hsl(280 85% 50% / 0.35), 0 0 24px hsl(280 85% 50% / 0.12);
+
+    --sidebar-background: 180 30% 96%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 180 100% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 180 50% 93%;
+    --sidebar-accent-foreground: 180 100% 18%;
+    --sidebar-border: 180 35% 82%;
+    --sidebar-ring: 180 100% 26%;
   }
 }
 
@@ -60,6 +128,11 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Space Grotesk', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.light body {
+    background: hsl(var(--background));
   }
 
   code, .font-mono {
@@ -69,31 +142,40 @@
 
 @layer components {
   .glow-text {
-    text-shadow: 0 0 10px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.2);
+    text-shadow: var(--glow-text-primary);
   }
 
   .glow-text-accent {
-    text-shadow: 0 0 10px hsl(280 100% 65% / 0.5), 0 0 40px hsl(280 100% 65% / 0.2);
+    text-shadow: var(--glow-text-accent);
   }
 
   .glow-border {
     box-shadow: var(--glow-primary);
-    border-color: hsl(180 100% 50% / 0.3);
+    border-color: hsl(var(--primary) / 0.3);
   }
 
   .glass-card {
-    background: hsl(220 20% 7% / 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(180 100% 50% / 0.1);
+    background: var(--glass-card-bg);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-card-border);
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
   }
 
   .glass-card:hover {
-    border-color: hsl(180 100% 50% / 0.3);
+    border-color: var(--glass-card-border-hover);
     box-shadow: var(--glow-primary);
   }
 
+  html.light .glass-card {
+    box-shadow: 0 2px 16px hsl(180 100% 26% / 0.06), 0 1px 4px hsl(0 0% 0% / 0.04);
+  }
+
+  html.light .glass-card:hover {
+    box-shadow: var(--glow-primary), 0 4px 20px hsl(0 0% 0% / 0.06);
+  }
+
   .gradient-text {
-    background: linear-gradient(135deg, hsl(180 100% 50%), hsl(280 100% 65%));
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -102,7 +184,7 @@
   .terminal-cursor::after {
     content: '█';
     animation: blink 1s step-end infinite;
-    color: hsl(180 100% 50%);
+    color: hsl(var(--primary));
   }
 
   @keyframes blink {
@@ -114,32 +196,74 @@
     @apply max-w-6xl mx-auto py-12 px-8 sm:px-10 md:px-12 lg:px-16;
   }
 
+  /* Terminal top bar */
+  .terminal-header {
+    @apply flex items-center gap-2 px-4 py-2.5 border-b border-border;
+    background: hsl(var(--secondary) / 0.5);
+  }
+
+  html.light .terminal-header {
+    background: linear-gradient(
+      135deg,
+      hsl(180 100% 36% / 1) 0%,
+      hsl(230 80%  60% / 1) 50%,
+      hsl(280 85%  52% / 1) 100%
+    );
+    border-bottom-color: hsl(280 85% 52% / 0.4);
+  }
+
+  html.light .terminal-header-text {
+    color: white;
+  }
+
+  /* Light-mode only: very faint teal→purple sweep across all content sections */
+  .sections-gradient {
+    background: hsl(var(--background));
+  }
+
+  html.light .sections-gradient {
+    background:
+      linear-gradient(
+        158deg,
+        hsl(180 100% 40% / 0.07) 0%,
+        hsl(180 80%  60% / 0.03) 18%,
+        transparent 38%
+      ),
+      linear-gradient(
+        338deg,
+        hsl(280 85% 55% / 0.07) 0%,
+        hsl(260 70%  65% / 0.03) 18%,
+        transparent 38%
+      ),
+      hsl(var(--background));
+  }
+
   .skill-tag {
     @apply px-3 py-1.5 rounded-md text-sm font-mono transition-all duration-300 cursor-default;
-    background: hsl(220 20% 10%);
-    border: 1px solid hsl(180 100% 50% / 0.15);
-    color: hsl(180 80% 70%);
+    background: var(--skill-tag-bg);
+    border: 1px solid var(--skill-tag-border);
+    color: var(--skill-tag-color);
   }
 
   .skill-tag:hover {
-    border-color: hsl(180 100% 50% / 0.5);
-    box-shadow: 0 0 12px hsl(180 100% 50% / 0.2);
+    border-color: var(--skill-tag-border-hover);
+    box-shadow: 0 0 14px hsl(var(--primary) / 0.22);
     transform: translateY(-2px);
   }
 
   .nav-link {
     @apply relative text-sm font-mono uppercase tracking-wider transition-colors duration-300;
-    color: hsl(220 10% 55%);
+    color: var(--nav-link-color);
   }
 
   .nav-link:hover, .nav-link.active {
-    color: hsl(180 100% 50%);
+    color: hsl(var(--primary));
   }
 
   .nav-link::after {
     content: '';
     @apply absolute bottom-0 left-0 w-full h-px scale-x-0 transition-transform duration-300 origin-right;
-    background: hsl(180 100% 50%);
+    background: hsl(var(--primary));
   }
 
   .nav-link:hover::after {

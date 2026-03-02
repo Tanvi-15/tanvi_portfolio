@@ -9,7 +9,9 @@ import { useRef, useState } from "react";
  * skills that have a real product/tech logo; skills without an entry
  * are shown as text-only (no icon, no placeholder).
  */
-type LogoInfo = { slug: string; color: string };
+type LogoInfo =
+  | { slug: string; color: string }
+  | { imageUrl: string };
 
 const skillLogoMap: Record<string, LogoInfo> = {
   "LangChain": { slug: "langchain", color: "1C7C7C" },
@@ -24,13 +26,27 @@ const skillLogoMap: Record<string, LogoInfo> = {
   "Librosa": { slug: "python", color: "3776AB" },
   "Streamlit": { slug: "streamlit", color: "FF4B4B" },
   "scikit-learn": { slug: "scikitlearn", color: "F7931E" },
-  "AWS": { slug: "amazonaws", color: "FF9900" },
-  "Lambda": { slug: "awslambda", color: "FF9900" },
-  "EC2": { slug: "amazonaws", color: "FF9900" },
-  "S3": { slug: "amazonaws", color: "FF9900" },
-  "ECR": { slug: "amazonaws", color: "FF9900" },
-  "CloudWatch": { slug: "amazonaws", color: "FF9900" },
-  "SQS SNS": { slug: "amazonaws", color: "FF9900" },
+  "AWS": {
+    imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  },
+  "Lambda": {
+    imageUrl: "https://en.wikipedia.org/wiki/Special:FilePath/Amazon_Lambda_architecture_logo.svg",
+  },
+  "EC2": {
+    imageUrl: "data:image/png;base64,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",
+  },
+  "S3": {
+    imageUrl: "https://miro.medium.com/max/640/1*B9CIOrxdROHvtdmouQA1_A.png",
+  },
+  // "ECR": {
+  //   imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  // },
+  "CloudWatch": {
+    imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  },
+  // "SQS SNS": {
+  //   imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  // },
   "CI/CD": { slug: "githubactions", color: "2088FF" },
   "Docker": { slug: "docker", color: "2496ED" },
   "Terraform": { slug: "terraform", color: "7B42BC" },
@@ -50,7 +66,9 @@ const skillLogoMap: Record<string, LogoInfo> = {
   "MongoDB": { slug: "mongodb", color: "47A248" },
   "PostgreSQL": { slug: "postgresql", color: "4169E1" },
   "MySQL": { slug: "mysql", color: "4479A1" },
-  "Redis": { slug: "redis", color: "DC382D" },
+  "Redis": {
+    imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
+  },
 };
 
 const techStackCategories = [
@@ -87,12 +105,12 @@ const techStackCategories = [
     title: "LLMOPS & CLOUD",
     skills: [
       "AWS",
-      "Lambda",
-      "EC2",
-      "S3",
-      "ECR",
-      "CloudWatch",
-      "SQS SNS",
+      // "Lambda",
+      // "EC2",
+      // "S3",
+      // "ECR",
+      // "CloudWatch",
+      // "SQS SNS",
       "Docker",
       "CI/CD",
       "Terraform",
@@ -132,7 +150,9 @@ const techStackCategories = [
 function SkillBadge({ name, index }: { name: string; index: number }) {
   const logoInfo = skillLogoMap[name];
   const logoSrc = logoInfo
-    ? `https://cdn.simpleicons.org/${logoInfo.slug}/${logoInfo.color}`
+    ? "imageUrl" in logoInfo
+      ? logoInfo.imageUrl
+      : `https://cdn.simpleicons.org/${logoInfo.slug}/${logoInfo.color}`
     : null;
   const [imgError, setImgError] = useState(false);
   const showLogo = logoSrc && !imgError;
@@ -143,7 +163,7 @@ function SkillBadge({ name, index }: { name: string; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.3, delay: index * 0.02 }}
-      className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-secondary/80 border border-border text-foreground font-medium text-sm hover:border-primary/30 hover:shadow-[0_0_12px_hsl(180_100%_50%/0.08)] transition-all duration-300"
+      className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-secondary/80 border border-border text-foreground font-medium text-sm hover:border-primary/40 hover:bg-secondary hover:shadow-[var(--glow-primary)] transition-all duration-300"
     >
       {showLogo ? (
         <img
