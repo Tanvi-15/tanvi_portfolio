@@ -22,14 +22,14 @@ type ProjectItem = ProjectLinks & {
 
 const highlightClass: Record<NonNullable<ProjectItem["variant"]>, string> = {
   default: "text-accent",
-  teal: "text-cyan-400",
-  ember: "text-orange-400",
+  teal: "teal-highlight",
+  ember: "ember-highlight",
 };
 
 const tagClass: Record<NonNullable<ProjectItem["variant"]>, string> = {
   default: "skill-tag text-xs",
-  teal: "rounded-md px-2 py-0.5 text-xs border border-cyan-500/35 text-cyan-200/90 bg-cyan-950/20",
-  ember: "rounded-md px-2 py-0.5 text-xs border border-amber-400/40 text-amber-200/90 bg-amber-950/20",
+  teal: "teal-tag",
+  ember: "ember-tag",
 };
 
 const topBarClass: Record<NonNullable<ProjectItem["variant"]>, string> = {
