@@ -38,7 +38,7 @@ const AboutSection = () => {
                   Currently an MSCS student (graduating May 2026) and AI Software Engineer at DASH - the DMSB AI Strategic Hub at Northeastern University.
                 </p>
                 <p className="text-secondary-foreground leading-relaxed mb-4">
-                  I&apos;m an AI/ML Engineer shipping production agentic systems. Built multi-agent grading and real-time voice coaching platforms from prototype to deployment serving 1,000+ students at Northeastern. 
+                  I&apos;m an AI/ML Engineer shipping production agentic systems. I've built multi-agent grading and real-time voice coaching platforms from prototype to deployment serving 1,000+ students at Northeastern. 
                 </p>
                 <p className="text-secondary-foreground leading-relaxed mb-4">
                   Deep experience in LangGraph, RAG pipelines, and speech ML, with full-stack ownership across Python/TypeScript backends, RabbitMQ, Redis, WebSocket streaming, and Docker.
@@ -48,8 +48,11 @@ const AboutSection = () => {
                   <div className="flex items-start gap-3">
                     
                     <p className="text-secondary-foreground/80 text-sm md:text-[0.95rem] leading-relaxed">
-                      <span className="text-foreground font-semibold">🔭 Fun fact:</span> I love astronomy - I've contributed to near-Earth object observations through NASA's Pan-STARRS program, designed and simulated a rocket that hit an apogee of 17,500m. One day I'd love to work on making astronomical knowledge more accessible to everyone.
+                      <span className="text-foreground font-semibold">🔭 Fun fact:</span> I love astronomy
                     </p>
+                  </div>
+                  <div>
+                    <p className="text-secondary-foreground/80 text-sm md:text-[0.95rem] leading-relaxed">I've contributed to near-Earth object observations through NASA's Pan-STARRS program, designed and simulated a rocket that hit an apogee of 17,500m. One day I'd love to work on making astronomical knowledge more accessible to everyone.</p>
                   </div>
                 </div>
               </TiltCard>
