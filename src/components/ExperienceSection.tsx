@@ -1,8 +1,16 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import TiltCard from "./TiltCard";
 
-const experiences = [
+const experiences: {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  logo: string;
+  highlights: (string | ReactNode)[];
+  tags: string[];
+}[] = [
   {
     company: "DMSB AI Strategic Hub (DASH)",
     role: "AI/ML Software Engineer",
@@ -10,27 +18,42 @@ const experiences = [
     location: "Boston, MA",
     logo: "/DASHLogoBloo.png",
     highlights: [
-      "Built full-stack AI grading platform reducing faculty grading time by 90%",
-      "Engineered RAG pipeline with FAISS + HuggingFace embeddings, 90% accuracy on 30+ PDFs",
-      "Architected multimodal speech AI serving 80+ presentations with real-time feedback",
-      "Optimized GPU inference — 5x throughput on NVIDIA Blackwell",
-      "Deployed production infrastructure handling 200+ concurrent users with 99% uptime",
+      "Led team of 4 engineers to deliver EssayBot, a multi-agent grading platform using LangGraph for parallel rubric evaluation.",
+      "Engineered dual RAG pipelines (LlamaIndex + Qdrant) indexing 30+ course documents per assignment.",
+      "Scaled to 1,000+ users with multi-layer security — prompt injection detection, Unicode attack filtering, and output validation.",
+      "Designed async grading backend (Node.js/TypeScript + Python/Flask) for concurrent full-class processing.",
+      "Orchestrated RabbitMQ task queues with dead-letter handling and retry logic, Redis caching for progress state, and WebSocket streaming for real-time instructor dashboards.",
+      "Deployed across UAT and production via Docker + PM2.",
+      "Built PresBot, a real-time voice AI coach serving 1000+ students across the university.",
+      "Designed full speech pipeline Whisper ASR, prosody analysis (Praat, Librosa, OpenSMILE), LLM feedback, and F5-TTS voice synthesis.",
+      <>
+        Achieved <strong className="text-foreground font-semibold">5x inference</strong> throughput by
+        migrating from Ollama to vLLM on self-hosted NVIDIA Blackwell GPUs.
+      </>,
     ],
-    tags: ["LangGraph", "LlamaIndex", "Docker", "RabbitMQ", "Next.js", "Flask"],
+    tags: [
+      "LangGraph",
+      "LlamaIndex",
+      "Qdrant",
+      "RabbitMQ",
+      "Redis",
+      "vLLM",
+      "Whisper",
+      "Docker",
+    ],
   },
   {
     company: "Capgemini",
-    role: "Data Analyst Intern",
-    period: "Jan 2024 — Jul 2024",
+    role: "AI Software Engineer",
+    period: "Jun 2023 — Jul 2024",
     location: "Mumbai, India",
     logo: "/CAPG.png",
     highlights: [
-      "Developed GenAI Scheduler Analyzer and Optimizer for resource management",
-      "Built multi-agent AI Assistant for aircraft engineers",
-      "Created pix2pix GAN model for criminal face detection",
-      "Designed real-time conversational deepfake bot",
+      "Engineered on-prem Generative AI assistant for aircraft maintenance engineers using LangChain. Built RAG system indexing thousands of technical documents, reducing issue resolution time by 25%.",
+      "Trained pix2pix GAN for masked face reconstruction (90% accuracy on internal benchmark).",
+      "Built real-time conversational deepfake bot with synchronized video and audio as client-facing GenAI demo.",
     ],
-    tags: ["Python", "GANs", "Multi-Agent", "Jira AI"],
+    tags: ["LangChain", "RAG", "pix2pix", "Python", "Generative AI"],
   },
   {
     company: "Capgemini",
@@ -104,7 +127,7 @@ const ExperienceSection = () => {
                       {exp.highlights.map((h, j) => (
                         <li key={j} className="text-secondary-foreground text-sm flex items-start gap-2">
                           <span className="text-primary mt-1 shrink-0">▹</span>
-                          {h}
+                          <span className="min-w-0">{h}</span>
                         </li>
                       ))}
                     </ul>
