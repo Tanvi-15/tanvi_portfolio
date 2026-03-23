@@ -28,32 +28,30 @@ const AboutSection = () => {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-            <div className="flex flex-col gap-6 justify-stretch">
+            <div className="flex flex-col justify-stretch">
               <TiltCard className="glass-card rounded-lg p-8 transition-all duration-500 flex-1 flex flex-col min-h-0">
                 <h3 className="font-mono text-primary text-lg mb-4 glow-text">
-                  {">"} ML {">"} GenAI
+                  {">"} Hi, I&apos;m Tanvi Deshpande.
                 </h3>
+                
                 <p className="text-secondary-foreground leading-relaxed mb-4">
-                  I believe that <span className="text-primary font-semibold">Generative AI alone cannot change anything</span>. 
-                  The real power lies in Machine Learning - understanding data, building models that learn, 
-                  and creating systems that truly reason.
+                  Currently an MSCS student (graduating May 2026) and AI Software Engineer at DASH - the DMSB AI Strategic Hub at Northeastern University.
                 </p>
-                <p className="text-secondary-foreground leading-relaxed mt-auto">
-                  GenAI is a tool. ML is the foundation. I build on foundations.
-                </p>
-              </TiltCard>
-
-              <TiltCard className="glass-card rounded-lg p-8 transition-all duration-500 flex-1 flex flex-col min-h-0">
-                <h3 className="font-mono text-primary text-lg mb-4 glow-text">
-                  {">"} What I Do
-                </h3>
                 <p className="text-secondary-foreground leading-relaxed mb-4">
-                  Currently a MSCS student (Batch 2026) and AI Software Engineer at DASH (DMSB AI Strategic Hub) at Northeastern University, building full-stack AI platforms 
-                  that reduce faculty grading time by 95%.
+                  I&apos;m an AI/ML Engineer shipping production agentic systems. Built multi-agent grading and real-time voice coaching platforms from prototype to deployment serving 1,000+ students at Northeastern. 
                 </p>
-                <p className="text-secondary-foreground leading-relaxed mt-auto">
-                  From RAG pipelines to multimodal speech AI, I architect systems where AI meets production.
+                <p className="text-secondary-foreground leading-relaxed mb-4">
+                  Deep experience in LangGraph, RAG pipelines, and speech ML, with full-stack ownership across Python/TypeScript backends, RabbitMQ, Redis, WebSocket streaming, and Docker.
                 </p>
+                
+                <div className="mt-2 pt-5 border-t border-border/60">
+                  <div className="flex items-start gap-3">
+                    
+                    <p className="text-secondary-foreground/80 text-sm md:text-[0.95rem] leading-relaxed">
+                      <span className="text-foreground font-semibold">🔭 Fun fact:</span> I love astronomy - I've contributed to near-Earth object observations through NASA's Pan-STARRS program, designed and simulated a rocket that hit an apogee of 17,500m. One day I'd love to work on making astronomical knowledge more accessible to everyone.
+                    </p>
+                  </div>
+                </div>
               </TiltCard>
             </div>
           </div>
